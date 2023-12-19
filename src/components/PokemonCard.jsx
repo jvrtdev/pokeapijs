@@ -1,18 +1,32 @@
 
+import './Card.modules.css'
+import ButtonCard from "./ButtonCard"
 
-export default function PokemonCard({name, img, type}) {
+export default function PokemonCard({data}) {
+
+        
+    
     return (
-        <div className="m-5 p-2 w-[200px] h-full rounded-md border-2 border-stone-100 shadow-md bg-red-500"
-        >
-            <div className="">
-                <img src={img} alt={name} 
-                className="w-full rounded-lg mb-5"
-                />
+        <div className={`${data.types[0].type.name} m-5 p-2 w-[200px] h-full rounded-xl shadow-md`}>
+            <div className='flex justify-between'>
+                <p className="font-bold text-center text-white ">{data.name}</p>
+                <p className="font-bold text-center text-white ">#{data.id}</p>
             </div>
-            <div className=" bg-orange-100 rounded-sm">
-                <p className="font-bold text-center">{name}</p>
-                <p>{type}</p>
-            </div>
+                <div className="">
+                    <img src={data.sprites.front_default} alt={data.name} 
+                    className="w-full"
+                    />
+                </div>
+                
+                <ButtonCard>
+                    {data.types[0].type.name}
+                </ButtonCard>
+                
+                
+                        
+                    
+
+
         </div>
     )
 }

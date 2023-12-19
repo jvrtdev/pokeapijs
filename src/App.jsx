@@ -19,12 +19,13 @@ function App() {
 
         const payloadPokemons = await Promise.all(
           results.map(async pokemon => {
-            const { id, types } = await getMoreInfo(pokemon.url)
+            const { id, types, sprites } = await getMoreInfo(pokemon.url)
 
             return {
               name: pokemon.name,
               id,
-              types
+              types,
+              sprites
             }
           })
         )
@@ -33,9 +34,9 @@ function App() {
 
   async function getMoreInfo(url) {
       const response = await axios.get(url)
-      const { id, types } = response.data;
+      const { id, types, sprites } = response.data;
 
-      return { id, types }
+      return { id, types, sprites }
   }
   console.log(pokemons)
 
@@ -45,9 +46,10 @@ function App() {
       <div className="flex flex-wrap">
         {pokemons.map((pokemon, index) => (
             <PokemonCard 
-            name={pokemon.name}
+            data={pokemon}
             key={index}
             />
+    
         ))}
       </div>
     </div>
