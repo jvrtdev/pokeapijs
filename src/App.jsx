@@ -9,16 +9,33 @@ function App() {
 
 
   useEffect(() => {
-    getPokemons()
+    getAllPokemons()
   }, []);
 
-  const getPokemons = () => {
-    var endpoints = []
-      for (let i = 1; i <= 50; i++) {
-        endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      const getAllPokemons = async () => {
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
+        const { results } = response.data
+
+
+        const payloadPokemons = await Promise.all(
+          results.map(async pokemon => {
+            const { id, types } = await getMoreInfo(pokemon.url)
+
+            return {
+              name: pokemon.name,
+              id,
+              types
+            }
+          })
+        )
+        setPokemons(payloadPokemons)
       }
-      let response = axios.all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => setPokemons(res.data)).catch((err) => console.error("deu ruim", err))
+
+  async function getMoreInfo(url) {
+      const response = await axios.get(url)
+      const { id, types } = response.data;
+
+      return { id, types }
   }
   console.log(pokemons)
 
@@ -29,8 +46,6 @@ function App() {
         {pokemons.map((pokemon, index) => (
             <PokemonCard 
             name={pokemon.name}
-            img={pokemon.sprites.front_defaulta}
-            type={pokemon.types.type.name}
             key={index}
             />
         ))}
