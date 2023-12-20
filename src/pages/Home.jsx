@@ -1,4 +1,8 @@
 import React from 'react'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import PokemonCard from '../components/PokemonCard'
+import Header from '../components/ui/Header';
 
 export default function Home() {
     const [ pokemons, setPokemons ] = useState([])
@@ -38,8 +42,10 @@ export default function Home() {
   
   
     return (
-      <div className="flex justify-center items-center bg-green-50">
+      <div className="flex justify-center items-center bg-green-50 flex-col">
+          <Header />
         <div className="flex flex-wrap max-w-screen-lg font-sans justify-center items-center">
+          
   
   
   
