@@ -16,6 +16,9 @@ export default {
         'flying': '#748fc9',
         'eletric': '#f2cb55',
         'ground': '#f78551',
+      },
+      backgroundImage: {
+        'ellipse': "url('/ellipse.svg')"
       }
     },
   },
