@@ -42,8 +42,11 @@ function App() {
 
 
   return (
-    <div className="font-sans">
-      <div className="flex flex-wrap">
+    <div className="flex justify-center items-center bg-green-50">
+      <div className="flex flex-wrap max-w-screen-lg font-sans justify-center items-center">
+
+
+
         {pokemons.map((pokemon, index) => (
             <PokemonCard 
             data={pokemon}
