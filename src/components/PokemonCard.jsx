@@ -8,7 +8,7 @@ export default function PokemonCard({data}) {
     
     return (
         <div className={`${data.types[0].type.name} m-5 p-2 w-[200px] h- rounded-xl shadow-md cursor-pointer`}>
-            <div className='flex justify-between items-center mb-1 bg-slate-100 rounded-md p-1'>
+            <div className='flex justify-between items-center mb-1  shadow-inner rounded-md p-1'>
 
                 <p className="font-bold text-center capitalized text-2xl">{data.name}</p>
 
