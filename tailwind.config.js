@@ -18,7 +18,8 @@ export default {
         'ground': '#f78551',
       },
       backgroundImage: {
-        'ellipse': "url('/ellipse.svg')"
+        'ellipse': "url('/ellipse.svg')",
+        'ellipse-inner': "url('/ellipse-inner.svg')"
       }
     },
   },
