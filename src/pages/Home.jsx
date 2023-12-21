@@ -6,8 +6,6 @@ import Header from '../components/ui/Header';
 
 export default function Home() {
     const [ pokemons, setPokemons ] = useState([])
-
-
     useEffect(() => {
       getAllPokemons()
     }, []);
@@ -54,7 +52,6 @@ export default function Home() {
               data={pokemon}
               key={index}
               />
-      
           ))}
         </div>
       </div>

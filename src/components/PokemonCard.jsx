@@ -1,13 +1,17 @@
 
 import './Card.modules.css'
 import ButtonCard from "./ButtonCard"
+import { Link,} from 'react-router-dom'
+
 
 export default function PokemonCard({data}) {
-        
-        
+
     
     return (
-        <div className={`${data.types[0].type.name} m-5 p-2 w-[200px] h- rounded-xl shadow-md cursor-pointer`}>
+    <Link to={`/about/${data.id}`}>
+        <div className={`${data.types[0].type.name} m-5 p-2 w-[200px] h- rounded-xl shadow-md cursor-pointer`}
+        onClick={() => console.log('top') }
+        >
             <div className='flex justify-between items-center mb-1  shadow-inner rounded-md p-1'>
 
                 <p className="font-bold text-center capitalized text-2xl">{data.name}</p>
@@ -35,6 +39,6 @@ export default function PokemonCard({data}) {
                     
 
 
-        </div>
+        </div></Link>
     )
 }
