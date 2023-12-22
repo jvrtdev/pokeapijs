@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SectionPokemon from '../components/AboutUi/SectionPokemon'
+import AboutStats from '../components/AboutUi/AboutStats'
 
 
 export default function About() {
@@ -43,6 +44,9 @@ export default function About() {
         id={pokemon.id}
         name={pokemon.name}
         currentType={pokemon.currentType}
+      />
+      <AboutStats 
+      
       />
       
     </div>
