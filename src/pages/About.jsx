@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import SectionPokemon from '../components/AboutUi/SectionPokemon'
 
 
 export default function About() {
@@ -16,13 +17,14 @@ export default function About() {
 
       const currentType = types[0].type.name
 
-      setPokemon([{
+      setPokemon({
         stats,
         abilities,
         id,
         name,
         types,
-      }])
+        currentType
+      })
       
     }
     catch (err) {
@@ -34,18 +36,14 @@ export default function About() {
   useEffect(() => {
   getPokemonDetail()
   },[])
-
+  console.log(pokemon)
   return (
-    <div className=''>
-      
-      
-      {pokemon.map((item, index) => (
-        <div
-        key={index}
-        >
-          {item.name}
-        </div>
-      ))}
+    <div className={`${pokemon.currentType} h-screen w-full`}>
+      <SectionPokemon
+        id={pokemon.id}
+        name={pokemon.name}
+        currentType={pokemon.currentType}
+      />
       
     </div>
   )
