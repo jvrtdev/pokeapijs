@@ -14,17 +14,25 @@ export default function About() {
     const getPokemonDetail = async () => {
       try {
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
-      const { stats, abilities, id, name, types } = response.data
+      const { stats, 
+              abilities,
+              id,
+              name,
+              types,
+              height,
+              weight 
+            } = response.data
 
       const currentType = types[0].type.name
-
       setPokemon({
         stats,
         abilities,
         id,
         name,
         types,
-        currentType
+        currentType,
+        height,
+        weight
       })
       
     }
@@ -39,14 +47,21 @@ export default function About() {
   },[])
   console.log(pokemon)
   return (
-    <div className={`${pokemon.currentType} h-screen w-full`}>
+    <div className={`${pokemon.currentType} h-full w-full`}>
       <SectionPokemon
         id={pokemon.id}
         name={pokemon.name}
         currentType={pokemon.currentType}
       />
+
       <AboutStats 
-      
+        stats={pokemon.stats}
+        abilities={pokemon.abilities}
+        id={pokemon.id}
+        name={pokemon.name}
+        data={pokemon/* usando essa prop pra pegar o type e o que mais precisar */}
+        height={pokemon.height}
+        weight={pokemon.weight}
       />
       
     </div>
