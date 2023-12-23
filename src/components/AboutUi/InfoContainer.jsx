@@ -5,10 +5,10 @@ export default function InfoContainer({icon, text, props, classBorder, abilities
   return (
     <div className={`flex items-center text-xl font-light flex-col p-5 ${classBorder}`}>
         <p className='flex items-center text'>{icon}{props}</p>
-        <div className='flex text-sm items-center gap-1 '>
+        <div className='flex text-sm items-center gap-1 flex-wrap justify-center'>
             {abilities?.map(item => (
-            <div className='border rounded-xl p-1 shadow-sm capitalize'>
-                {item} 
+            <div className='border rounded-xl p-1 shadow-sm capitalize flex flex-wrap font-normal'>
+                {item}
             </div>
         ))}</div>
         <p className='text-sm font-medium'>{text}</p>
