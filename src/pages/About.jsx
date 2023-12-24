@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SectionPokemon from '../components/AboutUi/SectionPokemon'
 import AboutStats from '../components/AboutUi/AboutStats'
+import PokemonStats from '../components/AboutUi/PokemonStats'
 
 
 export default function About() {
@@ -55,15 +56,12 @@ export default function About() {
       />
 
       <AboutStats 
-        stats={pokemon.stats}
-        abilities={pokemon.abilities}
-        id={pokemon.id}
         name={pokemon.name}
         data={pokemon/* usando essa prop pra pegar o type e o que mais precisar */}
         height={pokemon.height}
         weight={pokemon.weight}
+        stats={pokemon.stats}
       />
-      
     </div>
   )
 }

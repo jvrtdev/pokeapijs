@@ -1,9 +1,10 @@
 import React from 'react'
 import ButtonCard from '../ButtonCard'
 import InfoSection from './InfoSection'
+import PokemonStats from './PokemonStats'
 
 
-export default function AboutStats({stats,abilities,id,name, data, height, weight}) {
+export default function AboutStats({name, data, height, weight, stats}) {
 
 
   return (
@@ -22,6 +23,11 @@ export default function AboutStats({stats,abilities,id,name, data, height, weigh
             weight={weight}
             abilities={data}
             />
+
+            <PokemonStats 
+              stats={stats}
+              type={data}
+             />
     </div>
   )
 }
