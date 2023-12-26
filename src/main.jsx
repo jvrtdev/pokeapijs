@@ -8,12 +8,12 @@ import About from './pages/About'
 
 const router = createBrowserRouter([
   { 
-    path: "/welcome",
+    path: "/",
     element: <Welcome />
 
   },
   {
-    path: "/",
+    path: "/pokemons",
     element: <Home />
   },
   {
