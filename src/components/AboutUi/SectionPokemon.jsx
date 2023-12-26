@@ -12,7 +12,7 @@ export default function SectionPokemon({ id, name, currentType}) {
     return (
     <div className={`w-full`}>
             <div className='text-4xl fixed z-20 top-2 left-2 cursor-pointer'
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/pokemons")}
             >
                 <BsArrowLeft  />
             </div>
